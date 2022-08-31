@@ -10,9 +10,10 @@ let allInputs = document.querySelectorAll('.form-group .input')
 
 function validationForm() {
 
+
     // Email function validation
     function ValidateEmail(input) {
-        let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        let validRegex = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
         if (input.value.match(validRegex)) {
             input.classList.remove('error')
             return true;
@@ -21,9 +22,22 @@ function validationForm() {
             return false;
         }
     }
+    // text name Validation
+
+    function userNameInputFunc(input) {
+        let validRegex = /^[a-zA-Z ]*$/g;
+        if (input.value.match(validRegex)) {
+            input.classList.remove('error')
+            return true;
+        } else {
+            input.classList.add('error')
+            return false;
+        }
+    }
+
     // Phone Number Validation
     function phoneFunc(input) {
-        var phoneValidation = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+        var phoneValidation = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,5}$/im;
         if (input.value.match(phoneValidation)) {
             input.classList.remove('error')
             return true;
@@ -31,8 +45,6 @@ function validationForm() {
             input.classList.add('error')
             return false;
         }
-
-
     }
 
     // Message length more than 20 letters
@@ -63,6 +75,7 @@ function validationForm() {
     textLength(message)
     ValidateEmail(emailInput)
     phoneFunc(phoneInput)
+    userNameInputFunc(userNameInput)
 
 }
 
