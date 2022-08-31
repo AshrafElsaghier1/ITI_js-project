@@ -25,7 +25,7 @@ function validationForm() {
     // text name Validation
 
     function userNameInputFunc(input) {
-        let validRegex = /^[a-zA-Z ]*$/g;
+        let validRegex = /^[a-zA-Z\s]*$/g;
         if (input.value.match(validRegex)) {
             input.classList.remove('error')
             return true;
