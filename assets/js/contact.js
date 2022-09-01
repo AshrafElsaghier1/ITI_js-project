@@ -13,7 +13,7 @@ function validationForm() {
 
     // Email function validation
     function ValidateEmail(input) {
-        let validRegex = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+        let validRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         if (input.value.match(validRegex)) {
             input.classList.remove('error')
             return true;
@@ -73,9 +73,10 @@ function validationForm() {
         }
     });
     textLength(message)
+    userNameInputFunc(userNameInput)
     ValidateEmail(emailInput)
     phoneFunc(phoneInput)
-    userNameInputFunc(userNameInput)
+
 
 }
 
